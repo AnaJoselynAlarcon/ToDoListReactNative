@@ -10,31 +10,27 @@ import {
   SafeAreaView,
   StyleSheet,
 } from 'react-native';
-import ToDoForm from './ToDoForm';
-import ToDoList from './ToDoList';
-
+import ToDoForm from './src/components/ToDoForm';
+import ToDoList from './src/components/ToDoList';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 function App(){
-const [tasks, setTasks] = useState([
-  'Do laundry',
-  'Go to gym',
-  'Walk the dog',
-  'Study'
-]
-);
 
-//Inside the App component, create a function named addTask that will handle adding new tasks to the list:
-const handleAdd = (newTask) => {
-  //update state and adding to tasks array
-  setTasks([...tasks, newTask]);
-}
+
+//Create a stack navigator:
+const Stack = createStackNavigator();
+
+
 
 
   return (
-    <SafeAreaView>
-      <ToDoForm onAdd={handleAdd} />
-      <ToDoList tasks={tasks}/>
-    </SafeAreaView>
+    <NavigationContainer>
+     <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
