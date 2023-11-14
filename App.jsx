@@ -19,11 +19,20 @@ const [tasks, setTasks] = useState([
   'Do laundry',
   'Go to gym',
   'Walk the dog',
+  'Study'
 ]
 );
+
+//Inside the App component, create a function named addTask that will handle adding new tasks to the list:
+const handleAdd = (newTask) => {
+  //update state and adding to tasks array
+  setTasks([...tasks, newTask]);
+}
+
+
   return (
     <SafeAreaView>
-      <ToDoForm/>
+      <ToDoForm onAdd={handleAdd} />
       <ToDoList tasks={tasks}/>
     </SafeAreaView>
   );

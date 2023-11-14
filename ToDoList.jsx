@@ -18,7 +18,8 @@ function ToDoList(props){
       <React.Fragment key={index}>
       
         <Pressable>
-          <View style={[styles.task, styles.completed]}>
+        {/* <View style={[styles.task, styles.completed]}> */}
+          <View style={[styles.task]}>
             <Text style={styles.taskText}>{task}</Text>
           </View>
         </Pressable>
